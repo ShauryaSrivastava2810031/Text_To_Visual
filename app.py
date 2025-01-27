@@ -114,7 +114,7 @@ prompt = [
 
 # Streamlit App
 st.set_page_config(page_title="Text to Visualization")
-st.logo(image="C:/Users\shaurya.s\OneDrive - Comviva Technologies LTD\Pictures\Comviva.png", size="large")
+st.logo(image="Comviva.png", size="large")
 st.header("Data Retriever and Visualizer")
 
 question = st.text_input("Input your question:")
