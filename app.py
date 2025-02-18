@@ -11,10 +11,14 @@ load_dotenv()  # Load environment variables
 
 app = Flask(__name__)
 
-# Configure Google Generative AI
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# Fetch API key from environment variable
+api_key = os.getenv("GOOGLE_API_KEY")
 
+if not api_key:
+    raise ValueError("GOOGLE_API_KEY is not set. Please configure it in Azure.")
 
+# Configure Gemini API
+genai.configure(api_key=api_key)
 
 # Function to load gemini model and provide SQL query as response
 def get_gemini_response(question, prompt):
