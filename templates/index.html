@@ -11,14 +11,20 @@
             overflow-y: auto;
             border: 1px solid #ddd;
         }
+        .loading {
+            display: none;
+            text-align: center;
+            font-size: 18px;
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
     <div class="container mt-4">
-        <h1>Data Retriever and Visualizer</h1>
+        <h1 class="text-center">Data Retriever & Visualizer</h1>
 
         <!-- Form to take user input -->
-        <form method="POST">
+        <form method="POST" id="queryForm">
             <div class="form-group">
                 <label for="question">Input your question:</label>
                 <input type="text" class="form-control" id="question" name="question" value="{{ request.form['question'] if request.form else '' }}" required>
@@ -26,10 +32,13 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
+        <!-- Loading Indicator -->
+        <div class="loading mt-3" id="loadingMessage">Processing your request...</div>
+
         {% if question %}
             <hr>
             <h3>Generated SQL Query:</h3>
-            <pre>{{ query }}</pre>
+            <pre class="bg-light p-3 border rounded">{{ query }}</pre>
 
             {% if table %}
                 <h3>Query Results:</h3>
@@ -38,11 +47,15 @@
                         {{ table | safe }}
                     </div>
                 </div>
+            {% else %}
+                <p class="text-muted">No results found for this query.</p>
             {% endif %}
 
             {% if chart %}
                 <h3>Recommended Chart:</h3>
                 <div>{{ chart | safe }}</div>
+            {% else %}
+                <p class="text-muted">No chart available for this query.</p>
             {% endif %}
 
             {% if error %}
@@ -51,7 +64,12 @@
         {% endif %}
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        // Show loading message on form submission
+        $("#queryForm").submit(function() {
+            $("#loadingMessage").show();
+        });
+    </script>
 </body>
 </html>
