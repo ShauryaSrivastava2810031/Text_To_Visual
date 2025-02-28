@@ -1,4 +1,7 @@
 python-dotenv
 google-generativeai
-streamlit
+flask
 plotly
+langchain
+langchain-community
+langchain-google-genai
