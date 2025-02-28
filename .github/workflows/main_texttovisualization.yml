@@ -68,4 +68,4 @@ jobs:
         with:
           app-name: 'TextToVisualization'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_89A8272164214970AC60639601049899 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6773FDD3A99B49189BBE83E7A69403CA }}
