@@ -62,7 +62,7 @@ def read_sql_query(sql, db):
 # Configure caching
 cache = Cache(app, config={'CACHE_TYPE': 'simple', 'CACHE_DEFAULT_TIMEOUT': 300})  # Cache for 5 minutes
 
-@app.route("/", methods["GET","POST"])
+@app.route("/", methods=["GET","POST"])
 def index():
     if request.method == "POST":
         question = request.form["question"]
