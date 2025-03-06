@@ -35,6 +35,7 @@ Your task is to generate only the SQL query without explanations, comments, or e
     2. Ensure correctness with proper column names and table references.  
     3. Avoid assumptions if data is unavailable—return a valid, structured SQL query.
     4. Even if your final answer is a number, still return the SQL query as final answer only.
+    5. Don't use unasked or unneccessary LIMIT keyword.
 
 Now, generate the SQL query for:
 """
