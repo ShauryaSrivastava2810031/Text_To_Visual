@@ -8,3 +8,4 @@ langchain-community
 langchain-google-genai
 uvicorn
 pandas
+SQLAlchemy
